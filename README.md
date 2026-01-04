@@ -43,10 +43,16 @@ The toolkit uses a restricted high-contrast color scheme:
 
 ### Running from Source
 1. Clone the repository:
+   ```
    git clone https://github.com/YOUR_USERNAME/yt-dlp-toolkit.git
+   ```
+   ```
    cd yt-dlp-toolkit
-2. Launch the toolkit:
+   ```
+3. Launch the toolkit:
+   ```
    python yt-dlp-toolkit.py
+   ```
 
 ### Building the Standalone EXE
 To package the toolkit as a single runnable file with a custom icon:
@@ -55,16 +61,6 @@ To package the toolkit as a single runnable file with a custom icon:
 2. Build the executable:
    python -m PyInstaller --onefile --console --icon=icon.ico yt-dlp-toolkit.py
 3. Locate your standalone app in the `/dist` folder.
-
----
-
-## 📂 Project Structure
-
-yt-dlp-toolkit/
-├── yt-dlp-toolkit.py   # Core logic and UI
-├── icon.ico            # Custom Red/White branding icon
-├── README.md           # Documentation
-└── .gitignore          # Keeps repo clean from build artifacts
 
 ---
 
