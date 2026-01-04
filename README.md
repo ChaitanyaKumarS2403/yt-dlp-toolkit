@@ -49,6 +49,9 @@ The toolkit uses a restricted high-contrast color scheme:
    ```
    cd yt-dlp-toolkit
    ```
+2. Install the Dependencies:
+   Navigate to the downloaded repo on File Explorer and run the file named as `FirstRun.bat`.
+   This will install the required dependencies with just one click. Don't worry – it's safe. You can check the code if required.
 3. Launch the toolkit:
    ```
    python yt-dlp-toolkit.py
