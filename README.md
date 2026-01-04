@@ -64,16 +64,6 @@ To package the toolkit as a single runnable file with a custom icon:
 
 ---
 
-## 📂 Project Structure
-
-yt-dlp-toolkit/
-├── yt-dlp-toolkit.py   # Core logic and UI
-├── icon.ico            # Custom Red/White branding icon
-├── README.md           # Documentation
-└── .gitignore          # Keeps repo clean from build artifacts
-
----
-
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
 
