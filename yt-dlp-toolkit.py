@@ -1,4 +1,7 @@
 import os
+import shutil
+import signal
+import sys
 
 # Restricted Color Scheme: Red, Black, White
 RED = '\033[91m'
@@ -11,34 +14,29 @@ def clear_screen():
 
 def print_header(path):
     clear_screen()
-    # Header in Red
     print(f"{RED}{BOLD}" + "="*65)
     print("""
-  __   _______     ____  _     ____    _____           _ 
+  __   _______     ____  _     ____    _____            _ 
   \ \ / /_   _|   |  _ \| |   |  _ \  |_   _|__   ___ | |
    \ V /  | |_____| | | | |   | |_) |   | |/ _ \ / _ \| |
     | |   | |_____| |_| | |___|  __/    | | (_) | (_) | |
     |_|   |_|     |____/|_____|_|       |_|\___/ \___/|_|
     """)
-    # Credits in White
     print(f"{WHITE}                 Chaitanya Kumar Sathivada{RED}")
     print("="*65 + f"{RESET}")
-    
-    # Path info in White/Red contrast
     print(f"{WHITE}{BOLD} CURRENT DIRECTORY:{RESET} {RED}{path}{RESET}")
     print(f"{RED}" + "-"*65 + f"{RESET}")
 
 def run_downloader():
-    # Dynamic user path detection
     default_path = os.path.join(os.path.expanduser("~"), "Downloads")
     current_path = default_path
 
     while True:
         print_header(current_path)
-        print(f"  {RED}[1]{RESET} {WHITE}Download .mp3 Playlist/Video{RESET}")
-        print(f"  {RED}[2]{RESET} {WHITE}Download .mp4 Playlist/Video{RESET}")
-        print(f"  {RED}[3]{RESET} {WHITE}Download Album Cover Art{RESET}")
-        print(f"  {RED}[4]{RESET} {WHITE}Settings (Change Path){RESET}")
+        print(f"  {RED}[1]{RESET} {WHITE}Download Audio (MP3){RESET}")
+        print(f"  {RED}[2]{RESET} {WHITE}Download Video (MP4/MKV){RESET}")
+        print(f"  {RED}[3]{RESET} {WHITE}Download Thumbnail / Cover{RESET}")
+        print(f"  {RED}[4]{RESET} {WHITE}Settings{RESET}")
         print(f"  {RED}[E]{RESET} {WHITE}Exit Toolkit{RESET}")
         print(f"{RED}" + "-"*65 + f"{RESET}")
         
@@ -49,53 +47,64 @@ def run_downloader():
             break
         
         if choice == '4':
-            print(f"\n{WHITE}ENTER NEW SYSTEM PATH (Remember: {RED} Path will reset to default upon closing the tool!{WHITE}):{RESET}")
+            print(f"\n{WHITE}ENTER NEW SYSTEM PATH (Note: {RED}Resets on restart{WHITE}):{RESET}")
             new_path = input(f"{RED} > {RESET}").strip()
-            if new_path:
-                if os.path.exists(new_path):
-                    current_path = new_path
-                    print(f"{WHITE}Path successfully updated.{RESET}")
-                else:
-                    print(f"{RED}Error: Path not found.{RESET}")
-            input(f"\n{WHITE}Press Enter to continue...{RESET}")
+            if new_path and os.path.exists(new_path):
+                current_path = new_path
+                print(f"{WHITE}Path updated.{RESET}")
+            else:
+                print(f"{RED}Error: Path not found.{RESET}")
+            input(f"\n{WHITE}Press Enter...{RESET}")
             continue
 
         if choice not in ['1', '2', '3']:
             continue
 
         while True:
-            mode_map = {
-                '1': "MP3 AUDIO",
-                '2': "MP4 VIDEO",
-                '3': "COVER ART"
-            }
-            mode_label = mode_map[choice]
-            
-            print(f"\n{RED}{BOLD}MODE: {WHITE}{mode_label}{RESET}")
-            print(f"{WHITE}Type {RED}/back{WHITE} to return.{RESET}")
+            mode_map = {'1': "MP3 AUDIO", '2': "VIDEO MODE", '3': "COVER ART"}
+            print(f"\n{RED}{BOLD}MODE: {WHITE}{mode_map[choice]}{RESET}")
+            print(f"{WHITE}Type {RED}//{WHITE} and hit enter to go back to modes.{RESET}")
             url = input(f"{WHITE}URL > {RESET}").strip()
 
-            if url.lower() == '/back':
-                break
-            if not url:
-                continue
+            if url.lower() == '//': break
+            if not url: continue
 
-            # Smart folder template (Playlist name or Direct)
             output_template = "%(playlist_title&%s/|)s%(title)s.%(ext)s"
+            cmd = ""
 
             if choice == '1':
-                cmd = f'yt-dlp -x --audio-format mp3 --embed-metadata --add-metadata -P "{current_path}" -o "{output_template}" "{url}"'
+                cmd = f'yt-dlp -x --audio-format mp3 --embed-thumbnail --convert-thumbnails jpg --embed-metadata -P "{current_path}" -o "{output_template}" "{url}"'
+            
             elif choice == '2':
-                cmd = f'yt-dlp --recode-video mp4 --embed-metadata --add-metadata -P "{current_path}" -o "{output_template}" "{url}"'
+                print(f"\n{WHITE}CHOOSE FORMAT:{RESET}")
+                print(f" {RED}[A]{RESET} {WHITE}MKV ({RED}Fastest{WHITE}){RESET}")
+                print(f" {RED}[B]{RESET} {WHITE}MP4 ({RED}Slower{WHITE}){RESET}")
+                print(f" {RED}[X]{RESET} {WHITE}Cancel & Go Back{RESET}")
+                v_choice = input(f"\n{WHITE}{BOLD}FORMAT > {RESET}").strip().lower()
+                
+                if v_choice == 'x':
+                    break # Breaks out of the download logic to the URL input
+
+                ext = "mp4" if v_choice == 'b' else "mkv"
+                if ext == "mp4":
+                    cmd = f'yt-dlp --recode-video mp4 --embed-metadata -P "{current_path}" -o "{output_template}" "{url}"'
+                else:
+                    cmd = f'yt-dlp --merge-output-format mkv --embed-metadata -P "{current_path}" -o "{output_template}" "{url}"'
+
             elif choice == '3':
                 cmd = f'yt-dlp --skip-download --write-thumbnail -P "{current_path}" -o "{output_template}" "{url}"'
 
-            print(f"\n{RED}--- INITIALIZING STREAM ---{RESET}\n")
-            # Execution
-            os.system(cmd)
-            print(f"\n{WHITE}--- DOWNLOAD COMPLETE ---{RESET}")
+            if cmd:
+                print(f"\n{RED}--- INITIALIZING STREAM ---{RESET}")
+                print(f"{WHITE}Press {RED}Ctrl+C{WHITE} at any time to cancel download.{RESET}\n")
+                try:
+                    os.system(cmd)
+                    print(f"\n{WHITE}--- DOWNLOAD COMPLETE ---{RESET}")
+                except KeyboardInterrupt:
+                    print(f"\n{RED}!!! DOWNLOAD CANCELLED BY USER !!!{RESET}")
 
 if __name__ == "__main__":
-    # Initialize Windows ANSI support
+    # Handle KeyboardInterrupt globally to prevent ugly Python tracebacks
+    signal.signal(signal.SIGINT, lambda x, y: print(f"\n{RED}Operation Interrupted.{RESET}") or sys.exit(0))
     os.system("") 
     run_downloader()
