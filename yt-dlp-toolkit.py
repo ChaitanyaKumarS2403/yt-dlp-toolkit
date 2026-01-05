@@ -24,6 +24,9 @@ def print_header(path):
     """)
     print(f"{WHITE}                 Chaitanya Kumar Sathivada{RED}")
     print("="*65 + f"{RESET}")
+    print(f"{WHITE}{BOLD} Your Downloaded files will be saved to the CURRENT DIRECTORY.{RESET}")
+    print(f"{WHITE}{BOLD}           You can change the path in Settings{RESET}")
+    print("")
     print(f"{WHITE}{BOLD} CURRENT DIRECTORY:{RESET} {RED}{path}{RESET}")
     print(f"{RED}" + "-"*65 + f"{RESET}")
 
@@ -33,6 +36,8 @@ def run_downloader():
 
     while True:
         print_header(current_path)
+        print(f"{BOLD}{RED}SELECT MODE {WHITE}by entering the option value:{RESET}")
+        print("")
         print(f"  {RED}[1]{RESET} {WHITE}Download Audio (MP3){RESET}")
         print(f"  {RED}[2]{RESET} {WHITE}Download Video (MP4/MKV){RESET}")
         print(f"  {RED}[3]{RESET} {WHITE}Download Thumbnail / Cover{RESET}")
@@ -40,14 +45,14 @@ def run_downloader():
         print(f"  {RED}[E]{RESET} {WHITE}Exit Toolkit{RESET}")
         print(f"{RED}" + "-"*65 + f"{RESET}")
         
-        choice = input(f"\n{WHITE}{BOLD}ACTION > {RESET}").strip().lower()
+        choice = input(f"\n{WHITE}{BOLD}Choose the {RED}MODE : {RESET}").strip().lower()
 
         if choice == 'e':
             print(f"{RED}Closing Toolkit...{RESET}")
             break
         
         if choice == '4':
-            print(f"\n{WHITE}ENTER NEW SYSTEM PATH (Note: {RED}Resets on restart{WHITE}):{RESET}")
+            print(f"\n{WHITE}ENTER NEW SYSTEM PATH (NOTE: {RED}Resets on restart{WHITE}):{RESET}")
             new_path = input(f"{RED} > {RESET}").strip()
             if new_path and os.path.exists(new_path):
                 current_path = new_path
@@ -61,10 +66,12 @@ def run_downloader():
             continue
 
         while True:
-            mode_map = {'1': "MP3 AUDIO", '2': "VIDEO MODE", '3': "COVER ART"}
-            print(f"\n{RED}{BOLD}MODE: {WHITE}{mode_map[choice]}{RESET}")
+            mode_map = {'1': "[AUDIO MODE]", '2': "[VIDEO MODE]", '3': "[THUMBNAIL MODE]"}
+            print(f"\n{RED}{BOLD}CURRENT MODE: {WHITE}{mode_map[choice]}{RESET}")
             print(f"{WHITE}Type {RED}//{WHITE} and hit enter to go back to modes.{RESET}")
-            url = input(f"{WHITE}URL > {RESET}").strip()
+            print("")
+            print(f"{RED}NOTE: {WHITE}Make sure the URL is copied from the '{RED}Share{WHITE}' option below the YouTube video only and {RED}NOT from the URL Bar.{RESET}")
+            url = input(f"{WHITE}Paste your copied URL here : {RESET}").strip()
 
             if url.lower() == '//': break
             if not url: continue
@@ -80,7 +87,7 @@ def run_downloader():
                 print(f" {RED}[A]{RESET} {WHITE}MKV ({RED}Fastest{WHITE}){RESET}")
                 print(f" {RED}[B]{RESET} {WHITE}MP4 ({RED}Slower{WHITE}){RESET}")
                 print(f" {RED}[X]{RESET} {WHITE}Cancel & Go Back{RESET}")
-                v_choice = input(f"\n{WHITE}{BOLD}FORMAT > {RESET}").strip().lower()
+                v_choice = input(f"\n{WHITE}{BOLD}Choose your desired {RED}FORMAT > {RESET}").strip().lower()
                 
                 if v_choice == 'x':
                     break # Breaks out of the download logic to the URL input
@@ -95,11 +102,14 @@ def run_downloader():
                 cmd = f'yt-dlp --skip-download --write-thumbnail -P "{current_path}" -o "{output_template}" "{url}"'
 
             if cmd:
-                print(f"\n{RED}--- INITIALIZING STREAM ---{RESET}")
+                print(f"\n{RED}--- INITIALIZING ---{RESET}")
                 print(f"{WHITE}Press {RED}Ctrl+C{WHITE} at any time to cancel download.{RESET}\n")
                 try:
                     os.system(cmd)
-                    print(f"\n{WHITE}--- DOWNLOAD COMPLETE ---{RESET}")
+                    print("")
+                    print(f"{WHITE}="*65)
+                    print(f"\n{RED}--- DOWNLOAD COMPLETE | CHECK YOUR DOWNLOAD PATH FOR THE MEDIA FILE ---{RESET}")
+                    print(f"{WHITE}="*65)
                 except KeyboardInterrupt:
                     print(f"\n{RED}!!! DOWNLOAD CANCELLED BY USER !!!{RESET}")
 

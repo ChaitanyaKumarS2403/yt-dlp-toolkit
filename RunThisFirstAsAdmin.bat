@@ -5,16 +5,24 @@ if %errorLevel% == 0 (
     echo Administrative permissions confirmed.
 ) else (
     echo ---------------------------------------------------
-    echo ERROR: PLEASE RUN THIS AS ADMINISTRATOR 
+    echo This script requires administrative privileges to run.
+    echo Please run this script as an Administrator. 
     echo ---------------------------------------------------
     echo.
-    echo Here's how to use it:
+    echo This file is a simple batch script that installs the required dependencies for the yt-dlp-toolkit.exe file using winget.
     echo.
-    echo 1. Run as Admin: Right-click the install_tools.bat file and select Run as Administrator. This is required for winget to modify system files.
+    echo Here's how to use this file:
+    echo.
+    echo 1. Run as Admin: Right-click the RunThisFirstAsAdmin.bat file and select Run as Administrator. This is required for winget to modify system files.
     echo.
     echo 2. Wait for Prompts: You may see a prompt asking you to agree to source agreements; just press Y if prompted.
     echo.
-    echo 3. Restart PowerShell/CMD: Once the script finishes, you must close and reopen your PowerShell window for the new "Path" variables to take effect.
+    echo 3. Completion: Once the script finishes, you can close the terminal and run the yt-dlp-toolkit.exe file. 
+    echo.
+    echo ---------------------------------------------------
+    echo.
+    echo Make sure to uncheck 'Always ask before opening this type of file' if prompted when running the yt-dlp-toolkit.exe file.
+    echo ---------------------------------------------------
     echo.
     pause
     exit /b
@@ -36,6 +44,8 @@ if %errorLevel% == 0 (echo FFmpeg installed successfully.) else (echo FFmpeg ins
 echo.
 echo ---------------------------------------------------
 echo Installation Complete!
-echo PLEASE RESTART YOUR TERMINAL TO USE THE COMMANDS.
+echo Since the Publisher Details are Unlicensed, you may be prompted with a Dialogue Box asking you to confirm your trust. Simply uncheck the box that says 'Always ask before opening this type of file.' and hit 'Run'.
+echo.
+echo PLEASE EXIT THE TERMINAL AND RUN THE yt-dlp-toolkit.exe file. 
 echo ---------------------------------------------------
 pause
