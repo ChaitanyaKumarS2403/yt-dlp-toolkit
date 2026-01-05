@@ -60,10 +60,14 @@ The toolkit uses a restricted high-contrast color scheme:
 ### Building the Standalone EXE
 To package the toolkit as a single runnable file with a custom icon:
 1. Install PyInstaller:
+   ```
    pip install pyinstaller
-2. Build the executable:
+   ```
+3. Build the executable:
+   ```
    python -m PyInstaller --onefile --console --icon=icon.ico yt-dlp-toolkit.py
-3. Locate your standalone app in the `/dist` folder.
+   ```
+4. Locate your standalone app in the `/dist` folder.
 
 ---
 
