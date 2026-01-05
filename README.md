@@ -5,7 +5,7 @@
 ![Tool](https://img.shields.io/badge/Backend-yt--dlp-red)
 ![License](https://img.shields.io/badge/License-MIT-white)
 
-A high-performance, visually optimized CLI wrapper for **yt-dlp**, featuring a professional **Red & White** aesthetic. This toolkit automates media downloading with smart folder management, metadata embedding, and a persistent user workflow.
+A high-performance, visually optimized CLI wrapper for **yt-dlp**. This toolkit automates media downloading with smart folder management, metadata embedding, and a persistent user workflow.
 
 Created by **Chaitanya Kumar Sathivada**.
 
@@ -13,7 +13,7 @@ Created by **Chaitanya Kumar Sathivada**.
 
 ## 🛠️ Key Features
 
-- **Smart Folder Logic:** Automatically creates sub-folders for playlists while keeping single video downloads clean in the root directory (eliminates the "NA" folder bug).
+- **Smart Folder Logic:** Automatically creates sub-folders for playlists while keeping single video downloads clean in the root directory.
 - **Dynamic Path Detection:** Automatically identifies the current Windows User profile to set the default `Downloads` path.
 - **Embedded Metadata:** Full support for embedding thumbnails, artist information, and media tags directly into the files.
 - **Optimized Modes:**
@@ -21,18 +21,8 @@ Created by **Chaitanya Kumar Sathivada**.
   - **Option 2 (MP4):** Video downloads recoded for maximum compatibility.
   - **Option 3 (Art):** Extracts high-resolution album/video cover art only.
 - **In-App Settings:** Update your download destination on the fly without restarting the toolkit.
-- **Looping Workflow:** Stay within your selected mode to paste multiple URLs; use `/back` to return to the main menu.
+- **Looping Workflow:** Stay within your selected mode to paste multiple URLs; use `//` to return to the main menu.
 
----
-
-## 🎨 Visual Interface
-
-The toolkit uses a restricted high-contrast color scheme:
-- **RED:** System branding, ASCII Logo, Borders, and UI Accents.
-- **WHITE:** User Inputs, URL prompts, Success messages, and Credits.
-- **BLACK:** Command-line background.
-
----
 
 ## 🚀 Getting Started
 
@@ -44,7 +34,7 @@ The toolkit uses a restricted high-contrast color scheme:
 ### Running from Source
 1. Clone the repository:
    ```
-   git clone https://github.com/YOUR_USERNAME/yt-dlp-toolkit.git
+   git clone https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit.git
    ```
    ```
    cd yt-dlp-toolkit
