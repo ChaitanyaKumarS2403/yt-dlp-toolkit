@@ -169,7 +169,9 @@ def run_downloader():
                 cmd = ['yt-dlp', '-x', '--audio-format', 'mp3', '--embed-thumbnail', '--convert-thumbnails', 'jpg', '--embed-metadata', '-P', current_path, '-o', output_template, url]
             
             elif choice == '2':
-                print(f"\n{WHITE}CHOOSE FORMAT: {RED}[A]{WHITE} MKV | {RED}[B]{WHITE} MP4{RESET}")
+                print(f"\n{WHITE}CHOOSE FORMAT: {RESET}")
+                print(f"{WHITE}{RED}  [A]{WHITE} MKV ({RED}Fastest{WHITE}){RESET}")
+                print(f"{WHITE}{RED}  [B]{WHITE} MP4 ({RED}Slow{WHITE}){RESET}")
                 v_choice = input(f"{WHITE}Format > {RESET}").strip().lower()
                 if v_choice == 'b':
                     cmd = ['yt-dlp', '--recode-video', 'mp4', '--embed-metadata', '-P', current_path, '-o', output_template, url]
