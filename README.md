@@ -15,6 +15,7 @@ Developed by **Chaitanya Kumar Sathivada**.
 
 [**Click here**](https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe) to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
 
+![Snippet](https://i.pinimg.com/736x/10/89/0e/10890ed83cbd4a2618861a1b266005b1.jpg)
 
 ## 🚀 Getting Started
 
