@@ -11,17 +11,9 @@ Created by **Chaitanya Kumar Sathivada**.
 
 ---
 
-## 🛠️ Key Features
-
-- **Smart Folder Logic:** Automatically creates sub-folders for playlists while keeping single video downloads clean in the root directory.
-- **Dynamic Path Detection:** Automatically identifies the current Windows User profile to set the default `Downloads` path.
-- **Embedded Metadata:** Full support for embedding thumbnails, artist information, and media tags directly into the files.
-- **Optimized Modes:**
-  - **Option 1 (MP3):** High-fidelity audio extraction with metadata.
-  - **Option 2 (MP4):** Video downloads recoded for maximum compatibility.
-  - **Option 3 (Art):** Extracts high-resolution album/video cover art only.
-- **In-App Settings:** Update your download destination on the fly without restarting the toolkit.
-- **Looping Workflow:** Stay within your selected mode to paste multiple URLs; use `//` to return to the main menu.
+## 💿 Get The Tool! 
+1. Click [here](https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0/RunThisFirstAsAdmin.bat) to download the script to install the requirements of the tool. Make sure to run the file as an Admin.
+2. After downloading the first file, click [here](https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0/yt-dlp-toolkit.exe) to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Simply uncheck the box that says "Always ask before opening this type of files." and hit Run to start the tool.
 
 
 ## 🚀 Getting Started
@@ -40,26 +32,18 @@ Created by **Chaitanya Kumar Sathivada**.
    cd yt-dlp-toolkit
    ```
 2. Install the Dependencies:
-   Navigate to the downloaded repo on File Explorer and run the file named as `FirstRun.bat`.
+   Navigate to the downloaded repo on File Explorer and run the file named as `RunThisFirstAsAdmin.bat`.
    This will install the required dependencies with just one click. Don't worry – it's safe. You can check the code if required.
 3. Launch the toolkit:
+
+   Using Python:
    ```
    python yt-dlp-toolkit.py
    ```
 
-### Building the Standalone EXE
-To package the toolkit as a single runnable file with a custom icon:
-1. Install PyInstaller:
-   ```
-   pip install pyinstaller
-   ```
-3. Build the executable:
-   ```
-   python -m PyInstaller --onefile --console --icon=icon.ico yt-dlp-toolkit.py
-   ```
-4. Locate your standalone app in the `/dist` folder.
+   Using .exe:
+   Simply double click on the .exe file to launch the tool.
 
----
 
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
