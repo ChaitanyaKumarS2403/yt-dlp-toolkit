@@ -9,6 +9,14 @@ A high-performance, visually optimized CLI wrapper for **yt-dlp**. This toolkit 
 
 Developed by **Chaitanya Kumar Sathivada**.
 
+Works with most of the sources which does not have DRM Protection.
+**Works with:**
+<p align="left">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" height="30" />
+  <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" height="30" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/250px-JioSaavn_Logo.svg.png?20220618171145" height="30" />
+</p>
+
 ---
 
 ## 💿 Get The Tool! 
