@@ -1,9 +1,10 @@
 # 🎥 YT-DLP TOOLKIT 
 
-![Language](https://img.shields.io/badge/Language-Python-red)
-![Platform](https://img.shields.io/badge/Platform-Windows-white)
-![Tool](https://img.shields.io/badge/Backend-yt--dlp-red)
-![License](https://img.shields.io/badge/License-MIT-white)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![yt--dlp](https://img.shields.io/badge/yt--dlp-FF0000?logo=youtube&logoColor=white)
+![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 
 A high-performance, visually optimized CLI wrapper for **yt-dlp**. This toolkit automates media downloading with smart folder management, metadata embedding, and a persistent user workflow – including installation/uninstallation of dependencies.
 
