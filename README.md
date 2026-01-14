@@ -23,7 +23,7 @@ Works with most of the sources which does not have DRM Protection.
 ## 💿 Get The Tool! 
 
 <a href="https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe">
-  <img src="https://github.com/ChaitanyaKumarS2403/imgHost/blob/main/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
 </a>
 
 [**Click here**](https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe) to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
