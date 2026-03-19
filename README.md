@@ -6,10 +6,17 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 <a href="https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png" alt="YT-DLP Toolkit Banner">
 </a>
 
 Developed by **Chaitanya Kumar Sathivada**.
+
+<a href="https://github.com/ChaitanyaKumarS2403">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/Misc/github_profile.png" alt="GitHub" height=50>
+</a>
+<a href="https://www.linkedin.com/in/chaitanya-kumar-sathivada/">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/Misc/linkedin_profile.png" alt="LinkedIn" height=50>
+</a>
 
 **NOTE**: This tool *does not work* with platforms having **DRM Protection**.
 
@@ -23,7 +30,7 @@ Developed by **Chaitanya Kumar Sathivada**.
 Click on the button below to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
 
 <a href="https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/Misc/DownloadNow.png" height=50>
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/Misc/DownloadNow.png" alt="Download Now" height=50>
 </a>
 
 
