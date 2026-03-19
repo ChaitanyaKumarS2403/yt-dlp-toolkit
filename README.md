@@ -5,6 +5,9 @@
 ![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+<a href="https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
+</a>
 
 A high-performance, visually optimized CLI wrapper for **yt-dlp**. This toolkit automates media downloading with smart folder management, metadata embedding, and a persistent user workflow – including installation/uninstallation of dependencies.
 
@@ -27,10 +30,6 @@ Works with most of the sources which does not have DRM Protection.
 ---
 
 ## 💿 Get The Tool! 
-
-<a href="https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
-</a>
 
 Click on the button below to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
 
