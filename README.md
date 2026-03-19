@@ -9,23 +9,10 @@
   <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
 </a>
 
-A high-performance, visually optimized CLI wrapper for **yt-dlp**. This toolkit automates media downloading with smart folder management, metadata embedding, and a persistent user workflow – including installation/uninstallation of dependencies.
-
 Developed by **Chaitanya Kumar Sathivada**.
 
-Works with most of the sources which does not have DRM Protection.
-**Works with:**
-<p align="left">
-  <a href="https://www.youtube.com/">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/general/image_assets/youtube.png" height="30">
-  </a>
-  <a href="https://www.instagram.com/">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/general/image_assets/instagram.png" height="30">
-  </a>
-  <a href="https://www.jiosaavn.com/">
-  <img src="https://github.com/ChaitanyaKumarS2403/assets/raw/main/general/image_assets/JioSaavn_Logo.svg.png" height="30">
-  </a>
-</p>
+**NOTE**: This tool *does not work* with platforms having **DRM Protection**.
+
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
