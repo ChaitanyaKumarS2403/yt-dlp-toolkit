@@ -13,9 +13,15 @@ Developed by **Chaitanya Kumar Sathivada**.
 Works with most of the sources which does not have DRM Protection.
 **Works with:**
 <p align="left">
-  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" height="30" />
-  <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" height="30" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/250px-JioSaavn_Logo.svg.png?20220618171145" height="30" />
+  <a href="https://www.youtube.com/">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/general/image_assets/youtube.png" height="30">
+  </a>
+  <a href="https://www.instagram.com/">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/general/image_assets/instagram.png" height="30">
+  </a>
+  <a href="https://www.jiosaavn.com/">
+  <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/general/image_assets/JioSaavn_Logo.svg.png" height="30">
+  </a>
 </p>
 
 ---
@@ -26,8 +32,9 @@ Works with most of the sources which does not have DRM Protection.
   <img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/projects_repo/yt-dlp-toolkit/yt-dlp-toolkit_poster.png">
 </a>
 
-[**Click here**](https://github.com/ChaitanyaKumarS2403/yt-dlp-toolkit/releases/download/v1.0.0.0/yt-dlp-toolkit.exe) to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
+Click on the button below to download the .exe file of the tool. It is expected by your Windows seeking for a confirmation as the files are unlicensed. Please choose "**Keep Anyway**" when downloading and uncheck "**Always ask before opening this type of file.**" on the dialogue box that pops up when launching the .exe file downloaded. 
 
+<img src="https://github.com/ChaitanyaKumarS2403/assets/blob/main/projects_repo/Misc/DownloadNow.png" height=50>
 
 ## 🚀 Getting Started
 
