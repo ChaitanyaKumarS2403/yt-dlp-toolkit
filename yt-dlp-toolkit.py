@@ -92,6 +92,51 @@ def uninstall_dependencies():
     except Exception as e:
         print(f"{RED}Failed to launch elevation: {e}{RESET}")
 
+def get_available_qualities(url, mode):
+    """Fetches available formats and returns a list of options."""
+    print(f"\n{RED}FETCHING AVAILABLE QUALITIES...{RESET}")
+    # -j provides JSON metadata, which is cleaner to parse than raw text
+    cmd = ['yt-dlp', '-j', url]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            return None
+
+        import json
+        info = json.loads(result.stdout)
+        formats = info.get('formats', [])
+        
+        options = []
+        print(f"\n{WHITE}AVAILABLE QUALITIES:{RESET}")
+        
+        if mode == 'audio':
+            # Get all audio-only streams and sort by bitrate
+            audio_streams = [f for f in formats if f.get('vcodec') == 'none' and (f.get('abr') or f.get('tbr'))]
+            audio_streams.sort(key=lambda x: x.get('abr', x.get('tbr', 0)), reverse=True)
+            
+            for i, f in enumerate(audio_streams[:10], 1):
+                bitrate = f.get('abr') or f.get('tbr')
+                print(f"  {RED}[{i}]{WHITE} {bitrate}kbps - {f['ext'].upper()} (ID: {f['format_id']})")
+                options.append(f['format_id'])
+                
+        else: # Video mode
+            # Filter for streams with video, unique heights, sorted descending
+            seen_heights = set()
+            video_streams = [f for f in formats if f.get('height') and f.get('height') not in seen_heights and seen_heights.add(f.get('height')) or True]
+            video_streams = [f for f in video_streams if f.get('vcodec') != 'none']
+            video_streams.sort(key=lambda x: x.get('height', 0), reverse=True)
+            
+            for i, f in enumerate(video_streams, 1):
+                print(f"  {RED}[{i}]{WHITE} {f['height']}p - {f['ext'].upper()} {f.get('fps', '')}fps")
+                options.append(f['format_id'])
+
+        choice = input(f"\n{WHITE}Select Quality Number: {RESET}").strip()
+        if choice.isdigit() and 1 <= int(choice) <= len(options):
+            return options[int(choice)-1]
+    except Exception as e:
+        print(f"{RED}Error fetching qualities: {e}{RESET}")
+    return None
+
 def run_downloader():
     default_path = os.path.join(os.path.expanduser("~"), "Downloads")
     current_path = default_path
@@ -166,20 +211,38 @@ def run_downloader():
             cmd = []
 
             if choice == '1':
-                cmd = ['yt-dlp', '-x', '--audio-format', 'mp3', '--embed-thumbnail', '--convert-thumbnails', 'jpg', '--embed-metadata', '-P', current_path, '-o', output_template, url]
+                selected_format = get_available_qualities(url, 'audio')
+                if selected_format:
+                    cmd = [
+                        'yt-dlp', 
+                        '-f', selected_format, 
+                        '-x', 
+                        '--audio-format', 'mp3', 
+                        '--audio-quality', '320K',  # This forces the 320kbps conversion
+                        '--embed-thumbnail', 
+                        '--convert-thumbnails', 'jpg', 
+                        '--embed-metadata', 
+                        '-P', current_path, 
+                        '-o', output_template, 
+                        url
+                    ]
             
             elif choice == '2':
-                print(f"\n{WHITE}CHOOSE FORMAT: {RESET}")
-                print(f"{WHITE}{RED}  [A]{WHITE} MKV ({RED}Fastest{WHITE}){RESET}")
-                print(f"{WHITE}{RED}  [B]{WHITE} MP4 ({RED}Slow{WHITE}){RESET}")
-                v_choice = input(f"{WHITE}Format > {RESET}").strip().lower()
-                if v_choice == 'b':
-                    cmd = ['yt-dlp', '--recode-video', 'mp4', '--embed-metadata', '-P', current_path, '-o', output_template, url]
-                else:
-                    cmd = ['yt-dlp', '--merge-output-format', 'mkv', '--embed-metadata', '-P', current_path, '-o', output_template, url]
+                selected_format = get_available_qualities(url, 'video')
+                if selected_format:
+                    # We use 'selected_format+ba/b' to ensure we get the best audio with the chosen video ID
+                    f_selector = f"{selected_format}+ba/b"
+                    
+                    print(f"\n{WHITE}CHOOSE FORMAT: {RESET}")
+                    print(f"{WHITE}{RED}  [A]{WHITE} MKV ({RED}Fastest{WHITE}){RESET}")
+                    print(f"{WHITE}{RED}  [B]{WHITE} MP4 ({RED}Slow{WHITE}){RESET}")
+                    v_choice = input(f"{WHITE}Format > {RESET}").strip().lower()
+                    
+                    if v_choice == 'b':
+                        cmd = ['yt-dlp', '-f', f_selector, '--recode-video', 'mp4', '--embed-metadata', '-P', current_path, '-o', output_template, url]
+                    else:
+                        cmd = ['yt-dlp', '-f', f_selector, '--merge-output-format', 'mkv', '--embed-metadata', '-P', current_path, '-o', output_template, url]
 
-            elif choice == '3':
-                cmd = ['yt-dlp', '--skip-download', '--write-thumbnail', '-P', current_path, '-o', output_template, url]
 
             if cmd:
                 print(f"\n{RED}----------- INITIALIZING DOWNLOAD -----------{RESET}")
